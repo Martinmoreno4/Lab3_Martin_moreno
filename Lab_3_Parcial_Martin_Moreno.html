@@ -1,0 +1,78 @@
+<html>
+
+    <head>
+        <meta charset=“utf-8” />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Examen Lab3 Martin Moreno</title>
+    </head>
+    <body>
+        <p id="demo"></p>  
+        <script type="text/javascript">
+
+            class Persona
+            {
+                id=0;
+                nombre="";
+                apellido="";
+                edad=0;
+
+                constructor(i, n, a, e)
+                {
+                    this.id= i || 12345678;
+                    this.nombre= n || "nombre";
+                    this.apellido= a || "apellido";
+                    this.edad= e || 25;
+                }
+            }
+
+            class heroe extends Persona
+            {
+                alterEgo="";
+                ciudad="";
+                publicado=1941;
+
+                constructor(i, n, a, e, ae, c, p)
+                {
+                    super(i, n, a, e);
+                    this.alterEgo= ae || "tony";
+                    this.ciudad= c || "avellaneda";
+                    this.publicado=p || 1941;
+                }
+
+            }
+
+            class vilano extends Persona
+            {
+                enemigo="";
+                robos=1;
+                asesinatos=1;
+
+                constructor(i, n, a, e, en, r, as)
+                {
+                    super(i, n, a, e);
+                    this.enemigo= en || "super";
+                    this.robos=r || 1;
+                    this.asesinatos=as || 1;
+                }
+            }
+
+            listaArray = '[{"id":1, "nombre":"Clark", "apellido":"Kent", "edad":45, "alterego":"Superman", "ciudad":"Metropolis","publicado":2002},{"id":2, "nombre":"Bruce", "apellido":"Wayne", "edad":35, "alterego":"Batman", "ciudad":"Gotica","publicado":20012},{"id":3, "nombre":"Bart", "apellido":"Alen", "edad":30, "alterego":"Flash", "ciudad":"Central","publicado":2017},{"id":4, "nombre":"Lex", "apellido":"Luthor", "edad":18, "enemigo":"Superman", "robos":500,"asesinatos":7},{"id":5, "nombre":"Harvey", "apellido":"Dent", "edad":20, "enemigo":"Batman", "robos":750,"asesinatos":2},{"id":666, "nombre":"Celina", "apellido":"kyle", "edad":23, "enemigo":"Batman", "robos":25,"asesinatos":1}]';
+
+            arrayHeroesVillanos = JSON.parse(listaArray);
+
+            const personas= [];
+
+            for (var i = 0; i < arrayHeroesVillanos.length; i++)
+            {
+                persona = new heroe(arrayHeroesVillanos[i]);
+                personas.push(persona);
+            }
+
+
+            document.getElementById("demo").innerHTML = personas;
+        </script>          
+
+    </body>
+
+</html>
